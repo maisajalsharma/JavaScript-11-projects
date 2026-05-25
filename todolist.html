@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do list</title>
+    <style>
+        body {
+            /* Flexbox on the body to center the main content container */
+            display: flex;
+            justify-content: center; /* Center horizontally */
+             /* Center vertically (if body takes full viewport height) */
+            min-height: 100vh; /* Ensure body takes full viewport height */
+            margin: 0; /* Remove default body margin */
+            background-color: lightcoral;
+            color: black;
+            /* Flex direction set to column to stack elements naturally, though 'main-content' handles the stacking */
+            /* flex-direction: column;  */
+        }
+#main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* --- New/Modified CSS for Sizing --- */
+
+        /* Target the input field by its ID */
+        #task {
+            /* Increase the width of the input box */
+            width: 300px; 
+            /* Increase the height of the input box */
+            height: 35px; 
+            /* Increase the size of the text/font inside the input box */
+            font-size: 18px; 
+            /* Add some padding for better spacing */
+            padding: 5px 10px;
+        }
+
+        /* You might want to increase the button size as well */
+        button[type="submit"] {
+            font-size: 18px; /* Increase text size */
+            padding: 10px 20px; /* Increase button size */
+        }
+
+        /* Adjusting spacing if needed */
+        h1 {
+            margin-bottom: 20px;
+            font-size: 50px;
+        }
+        form {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        /* Style for the main container holding all to-do elements */
+
+        /* To properly center the input box and button, you could adjust the form structure, 
+           but the general centered layout often resolves most issues. */
+
+    </style>
+</head>
+<body>
+
+    <div id="main-content">
+        <h1>To Do list :-</h1>
+        
+        <form>
+            <label for="task" style="display: none;">Task Description</label>
+            <input type="text" name="task" id="task" required>
+            <br><br> <button type="submit"> Add Work</button>
+        </form>
+         <br><br><br><br>
+        <div id="alltask"></div>
+    </div>
+    
+</body>
+<script src="./todolist.js"></script>
+</html>

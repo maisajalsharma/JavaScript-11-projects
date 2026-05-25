@@ -1,0 +1,180 @@
+/* General Styling & Reset - Focused on Viewport Height (vh) */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Golerand Background */
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Set minimum height to 100% of the viewport height */
+    overflow: hidden; /* Keeps main page static */
+}
+/* Keyframe animation for background gradient */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+/* Container - SCROLLBACK FIX APPLIED HERE */
+.container {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 2.5vh 3vw;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    width: 90%;
+    max-width: 420px;
+    position: relative;
+    z-index: 1;
+    
+    /* CRITICAL FIX: Allow the container itself to scroll if the content is too long. 
+       This is the only way to ensure 100% visibility when text length is unpredictable. */
+    overflow-y: auto; 
+    
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    max-height: 95vh; /* Limits the container height to 95% of the viewport */
+    box-sizing: border-box; 
+    
+    /* Scrollbar minimal styling for Webkit */
+    scrollbar-width: thin;
+    scrollbar-color: #FFA500 transparent; 
+}
+/* Webkit (Chrome, Safari, Edge) Scrollbar Hiding on Container */
+.container::-webkit-scrollbar {
+    width: 6px; 
+}
+.container::-webkit-scrollbar-thumb {
+    background-color: #FFA500; 
+    border-radius: 10px;
+}
+.container::-webkit-scrollbar-track {
+    background: transparent; 
+}
+/* Pseudo-element for glow (unchanged) */
+.container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(255,215,0,0.1), transparent 70%);
+    animation: rotateGlow 20s linear infinite;
+    z-index: -1;
+}
+@keyframes rotateGlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+/* Header Styling */
+h1 {
+    text-align: center;
+    color: #444; 
+    margin-bottom: 1.8vh; 
+    font-size: 2em; 
+    font-weight: 800;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1); 
+    letter-spacing: 0.5px;
+    padding-bottom: 0.8vh; 
+    border-bottom: 1px solid #f0e68c; 
+}
+/* Form Layout */
+#astroform {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2vh;
+}
+/* Label Styling */
+label {
+    font-weight: 700;
+    color: #444;
+    display: block;
+    margin-bottom: 0.3vh;
+    font-size: 0.95em;
+}
+/* Input Fields */
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 0.8vh 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1em;
+    color: #333;
+    background-color: #fdfdfd;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: #FFA500;
+    box-shadow: 0 0 8px rgba(255, 165, 0, 0.4);
+    outline: none;
+    background-color: #fff;
+}
+/* Submit Button */
+input[type="submit"] {
+    background: linear-gradient(45deg, #FFA500, #FFD700);
+    color: #fff;
+    padding: 1.2vh 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 800;
+    margin-top: 1.5vh;
+    box-shadow: 0 3px 10px rgba(255, 165, 0, 0.4);
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+input[type="submit"]:hover {
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+    box-shadow: 0 5px 15px rgba(255, 165, 0, 0.6);
+    transform: translateY(-2px);
+}
+input[type="submit"]:active {
+    transform: translateY(0px) scale(0.99);
+    box-shadow: 0 1px 5px rgba(255, 165, 0, 0.3);
+}
+/* Result Area - NOW FREE TO EXPAND */
+.result {
+    margin-top: 1.5vh; 
+    padding: 1vh 15px; 
+    border: 1px solid #FFD700;
+    border-radius: 8px;
+    min-height: 5vh; 
+    /* REMOVED: all max-height and overflow properties here to allow free expansion */
+    text-align: left;
+    font-weight: 500;
+    color: #333;
+    background-color: #fff;
+    box-shadow: inset 0 0 3px rgba(255, 215, 0, 0.2);
+    font-size: 0.9em; 
+}
+/* Remove all <br> tags for clean spacing */
+#astroform br {
+    display: none;
+}
+/* ======================================================= */
+/* ## Media Query for Very Short Screens (Last Resort Compactness) */
+/* ======================================================= */
+@media (max-height: 600px) {
+    /* For extremely short screens, ensure font sizes are small enough */
+    h1 {
+        font-size: 1.6em;
+    }
+    input[type="text"], input[type="number"], input[type="submit"], .result, label {
+        font-size: 0.85em;
+    }
+    input[type="submit"] {
+        padding: 0.9vh 15px;
+    }
+    .container {
+        padding: 2vh 3vw;
+    }
+}

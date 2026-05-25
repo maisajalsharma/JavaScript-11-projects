@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zomato Order Simulation</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #fff6f0;
+      color: #333;
+      text-align: center;
+      padding: 40px;
+    }
+    h1 {
+      color: #e23744;
+    }
+    button {
+      background-color: #e23744;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #c22331;
+    }
+    #output {
+      margin-top: 30px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: left;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .log {
+      margin: 10px 0;
+      padding: 10px;
+      background: #fef2f2;
+      border-left: 5px solid #e23744;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🍕 Zomato Order Simulation</h1>
+  <button onclick="startOrder()">💳 Make Payment</button>
+
+  <div id="output"></div>
+
+  <script>
+    const orderdetail = {
+      orderID: 123123,
+      food: ["Pizza", "Burger", "Coke"],
+      cost: 620,
+      customer_name: "Sajal",
+      customer_location: "Purwa jain",
+      restaurent_location: "Dibiyapur"
+    };
+
+    // function to show messages on webpage
+    function logMessage(message) {
+      const output = document.getElementById("output");
+      const div = document.createElement("div");
+      div.classList.add("log");
+      div.textContent = message;
+      output.appendChild(div);
+    }
+
+    function placedorder(orderdetail, callback) {
+      logMessage(`${orderdetail.customer_name}, your ₹${orderdetail.cost} payment is in progress...`);
+      setTimeout(() => {
+        logMessage("✅ Payment received successfully.");
+        orderdetail.status = true;
+        callback(orderdetail);
+      }, 3000);
+    }
+
+    function preparingfood(orderdetail, callback) {
+      logMessage(`👨‍🍳 Preparing your food: ${orderdetail.food.join(", ")}...`);
+      setTimeout(() => {
+        logMessage(`✅ ${orderdetail.customer_name}, your ${orderdetail.food.join(", ")} is ready!`);
+        callback(orderdetail);
+      }, 3000);
+    }
+
+    function pickuporder(orderdetail, callback) {
+      logMessage(`🏍️ Delivery boy is heading to ${orderdetail.restaurent_location}...`);
+      setTimeout(() => {
+        logMessage("✅ Delivery boy picked up the order from the restaurant.");
+        callback(orderdetail);
+      }, 3000);
+    }
+
+    function deliverorder(orderdetail) {
+      logMessage(`📍 Delivery boy is on the way to ${orderdetail.customer_location}...`);
+      setTimeout(() => {
+        logMessage(`🎉 ${orderdetail.customer_name}, please collect your order and enjoy! 🍔🍕🥤`);
+      }, 3000);
+    }
+
+    // function that starts the whole flow on button click
+    function startOrder() {
+      document.getElementById("output").innerHTML = ""; // clear old messages
+      placedorder(orderdetail, (orderdetail) => {
+        preparingfood(orderdetail, (orderdetail) => {
+          pickuporder(orderdetail, (orderdetail) => {
+            deliverorder(orderdetail);
+          });
+        });
+      });
+    }
+  </script>
+
+</body>
+</html>

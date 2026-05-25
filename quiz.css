@@ -1,0 +1,131 @@
+/* Base Styling for the Page and Quiz Container */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; /* Light bluish-white, like a summer sky */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Aligns content to the top */
+    min-height: 100vh;
+    padding: 20px;
+    margin: 0;
+}
+
+.quiz-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    margin-top: 50px; /* Space from the top */
+}
+
+h1 {
+    text-align: center;
+    color: #004d40;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #004d40;
+    padding-bottom: 10px;
+}
+
+/* Question block styles (unchanged) */
+.question-block {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.question-text {
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #444;
+}
+
+label {
+    display: block;
+    margin: 8px 0;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+label:hover {
+    background-color: #e6f7ff;
+}
+
+input[type="radio"] {
+    margin-right: 8px;
+}
+
+/* Feedback Styling (unchanged) */
+.question-block.correct {
+    background-color: #e6ffe6;
+    border-color: #4caf50;
+}
+
+.question-block.incorrect {
+    background-color: #ffe6e6;
+    border-color: #f44336;
+}
+
+/* Submit Button (unchanged) */
+#submit-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #ff9800;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: background-color 0.3s ease;
+}
+
+#submit-btn:hover {
+    background-color: #fb8c00;
+}
+
+/* Results Container Styles */
+/* Note: Since your HTML uses a combination of #result and #out, 
+   I've styled #out for the score display and kept #result for styling consistency. */
+
+/* Style the outer result area (if you had used this container) */
+
+/* FIX: Style the #out div to display the score prominently and centered */
+#out { 
+    /* Inherit the look from #result since it's the main output */
+    text-align: center; /* Centers the text inside the container */
+    margin-top: 15px;
+    padding: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #004d40; /* Match the title color */
+    border: 2px solid #ff9800; /* Use the orange accent color */
+    border-radius: 8px;
+    background-color: #fff9e6; /* Light background for the score */
+}
+
+/* The .results-hidden class you had is useful for initially hiding results */
+.results-hidden {
+    display: none;
+}
+
+/* You didn't use these IDs, but keeping the styles if you adapt your JS */
+#score-display {
+    color: #ff9800;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#feedback {
+    margin-top: 10px;
+    font-style: italic;
+    color: #004d40;
+}

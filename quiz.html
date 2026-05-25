@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Quiz</title>
+    <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>The Ultimate Cricket Quiz!</h1>
+        <form id="quiz">
+
+            <div class="question-block" data-answer="Don Bradman">
+                <p class="question-text">1. Which legendary batsman has the highest Test cricket batting average?</p>
+                <label><input type="radio" name="q1" value="Sachin Tendulkar"> Sachin Tendulkar</label>
+                <label><input type="radio" name="q1" value="Virat Kohli"> Virat Kohli</label>
+                <label><input type="radio" name="q1" value="Don Bradman"> Don Bradman</label>
+                <label><input type="radio" name="q1" value="Brian Lara"> Brian Lara</label>
+            </div>
+
+            <div class="question-block" data-answer="11">
+                <p class="question-text">2. How many players are on a single cricket team on the field?</p>
+                <label><input type="radio" name="q2" value="9"> 9</label>
+                <label><input type="radio" name="q2" value="10"> 10</label>
+                <label><input type="radio" name="q2" value="11"> 11</label>
+                <label><input type="radio" name="q2" value="12"> 12</label>
+            </div>
+
+            <div class="question-block" data-answer="Ashes">
+                <p class="question-text">3. What is the name of the famous Test series played between England and Australia?</p>
+                <label><input type="radio" name="q3" value="Border-Gavaskar Trophy"> Border-Gavaskar Trophy</label>
+                <label><input type="radio" name="q3" value="The Urn"> The Urn</label>
+                <label><input type="radio" name="q3" value="Ashes"> Ashes</label>
+                <label><input type="radio" name="q3" value="Chappell-Hadlee Trophy"> Chappell-Hadlee Trophy</label>
+            </div>
+
+            <div class="question-block" data-answer="A Hat-Trick">
+                <p class="question-text">4. What is it called when a bowler takes three wickets in three consecutive deliveries?</p>
+                <label><input type="radio" name="q4" value="A Fifer"> A Fifer</label>
+                <label><input type="radio" name="q4" value="A Hat-Trick"> A Hat-Trick</label>
+                <label><input type="radio" name="q4" value="A Maiden Over"> A Maiden Over</label>
+                <label><input type="radio" name="q4" value="A Yorker"> A Yorker</label>
+            </div>
+
+            <div class="question-block" data-answer="ICC Cricket World Cup">
+                <p class="question-text">5. What major tournament is held every four years for ODI (50-over) cricket?</p>
+                <label><input type="radio" name="q5" value="T20 World Cup"> T20 World Cup</label>
+                <label><input type="radio" name="q5" value="Ashes"> Ashes</label>
+                <label><input type="radio" name="q5" value="Champions Trophy"> Champions Trophy</label>
+                <label><input type="radio" name="q5" value="ICC Cricket World Cup"> ICC Cricket World Cup</label>
+            </div>
+            <button id="submit-btn">Submit Quiz</button>
+        </form>
+
+        
+        
+        <!-- <div id="result" class="result"></div> -->
+        <div id="out"></div>
+    </div>
+</body>
+<script src="./quiz.js"></script>
+</html>
